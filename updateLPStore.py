@@ -45,6 +45,7 @@ def processData(result,connection,metadata):
                                     typeID=offer['item']['id'],
                                     quantity=offer['quantity'],
                                     lpCost=offer['lpCost'],
+                                    akCost=offer.get('akCost',0),
                                     iskCost=offer['iskCost']
                                 )
                 offerid=offerres.inserted_primary_key
@@ -83,6 +84,7 @@ if __name__ == "__main__":
                             Column('typeID',Integer),
                             Column('quantity',Integer),
                             Column('lpCost',Integer),
+                            Column('akCost',Integer),
                             Column('iskCost',Integer)
                       )
     requirementsTable = Table('lpOfferRequirements',metadata,
